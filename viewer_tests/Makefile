@@ -8,7 +8,7 @@ MKDIR = mkdir -p
 CFLAGS = -Wall -Wextra -Werror
 
 OS := $(shell uname -s)
-ITUBUNTU := $(shell uname -a | grep UBUNTU)
+ITUBUNTU := $(shell uname -a | grep Ubuntu)
 
 INCLUDE_DIR = ../viewer/include
 TEST_INCLUDE_DIR = ./include
