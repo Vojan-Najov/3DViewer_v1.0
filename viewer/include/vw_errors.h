@@ -1,0 +1,12 @@
+#ifndef __VIEWER_ERRORS_H__
+#define __VIEWER_ERRORS_H__
+
+#define VW_OPEN_FILE_ERROR 1
+#define VW_READ_FILE_ERROR 2
+#define VW_WRITE_FILE_ERROR 2
+#define VW_CLOSE_FILE_ERROR 4
+#define VW_ALLOC_ERROR 5
+#define VW_INCORRECT_LINE 6
+
+#endif
+
