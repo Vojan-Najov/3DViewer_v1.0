@@ -5,7 +5,7 @@ RM = rm -f
 RMDIR = rm -rf
 MKDIR = mkdir -p
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
 OS := $(shell uname -s)
 ITUBUNTU := $(shell uname -a | grep Ubuntu)
@@ -39,7 +39,7 @@ all: $(TARGET)
 
 $(TARGET): $(TEST_OBJ)
 	make -sC ../viewer/ all
-	$(CC) -o $@ $? ../viewer/lib3Dviewer.a $(TEST_LIBS)
+	$(CC) -g -o $@ $? ../viewer/lib3Dviewer.a $(TEST_LIBS)
 	./test
 
 
