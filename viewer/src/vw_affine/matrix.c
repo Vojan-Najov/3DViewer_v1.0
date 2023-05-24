@@ -13,6 +13,7 @@ int create_matrix(int rows, int columns, matrix_t *result) {
       }
     } else {
       answer = FAILURE;
+      free(result->matrix);
     }
   }
   if (answer == SUCCESS) {
@@ -68,9 +69,9 @@ int mult_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
       answer = FAILURE;
     }
   }
-  if (answer == SUCCESS) {
-    answer = create_matrix(A->rows, B->columns, result);
-  }
+  //if (answer == SUCCESS) {
+  //  answer = create_matrix(A->rows, B->columns, result);
+  //}
   if (answer == SUCCESS) {
     for (int i = 0; i < result->rows; i++) {
       for (int j = 0; j < result->columns; j++) {
