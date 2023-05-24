@@ -376,6 +376,33 @@ START_TEST(test_19) {
 }
 END_TEST
 
+START_TEST(test_20) {
+	char str[] = " 1 2/1 3//1 -4/2/2 -5// -6//-1 ";
+	vw_model_t *model;
+	int err_status;
+
+	model = init_model();
+	if (model != NULL) {
+		for (int i = 0; i < 129; ++i) {
+			err_status = vw_parse_face(str, model);
+			ck_assert_int_eq(0, err_status);
+		}
+		ck_assert_int_eq(129, (int)model->number_of_faces);
+		for (int i = 0; i < 129; ++i) {
+			ck_assert_int_eq(6, (int)model->faces[i].number_of_idx);
+			ck_assert_int_eq(0, (int)model->faces[i].idx[0]);
+			ck_assert_int_eq(1, (int)model->faces[i].idx[1]);
+			ck_assert_int_eq(2, (int)model->faces[i].idx[2]);
+			ck_assert_int_eq(7 - 1, (int)model->faces[i].idx[3]);
+			ck_assert_int_eq(6 - 1, (int)model->faces[i].idx[4]);
+			ck_assert_int_eq(5 - 1, (int)model->faces[i].idx[5]);
+		}
+		vw_model_clear(model);
+		free(model);
+	}
+}
+END_TEST
+
 Suite *test_vw_parse_face(void) {
 	Suite *s;
 	TCase *tc;
@@ -403,6 +430,7 @@ Suite *test_vw_parse_face(void) {
 			tcase_add_test(tc, test_17);
 			tcase_add_test(tc, test_18);
 			tcase_add_test(tc, test_19);
+			tcase_add_test(tc, test_20);
 			suite_add_tcase(s, tc);
 		} else {
 			free(s);
