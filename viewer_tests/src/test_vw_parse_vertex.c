@@ -274,6 +274,7 @@ START_TEST(test_19) {
 		ck_assert_float_eq(p[i][3], model.vertices[i][3]);
 	}
 
+	free(p);
 	vw_model_clear(&model);
 }
 END_TEST
