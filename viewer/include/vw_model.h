@@ -19,17 +19,17 @@
 typedef float vw_point_t[VW_POINT_NUMBER_OF_COORDINATES];
 
 typedef struct vw_face {
-	unsigned int *idx;
-	size_t number_of_idx;
+    unsigned int *idx;
+    size_t number_of_idx;
 } vw_face_t;
 
 typedef struct vw_model {
-	vw_point_t *vertices;
-	size_t number_of_vertices;
-	vw_face_t *faces;
-	size_t number_of_faces;
-	vw_point_t centre;
-	float dim;
+    vw_point_t *vertices;
+    size_t number_of_vertices;
+    vw_face_t *faces;
+    size_t number_of_faces;
+    vw_point_t centre;
+    float dim;
 } vw_model_t;
 
 void vw_model_calculate_dimension(vw_model_t *model);

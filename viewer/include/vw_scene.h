@@ -1,11 +1,11 @@
 #ifndef __VIEWER_SCENE_H__
 #define __VIEWER_SCENE_H__
 
-#include "vw_model.h"
 #include "vw_errors.h"
+#include "vw_model.h"
 
-#ifndef VW_CONF_FILE 
-  #define VW_CONF_FILE "./.3DViewer_v1.0_conf"
+#ifndef VW_CONF_FILE
+#define VW_CONF_FILE "./.3DViewer_v1.0_conf"
 #endif
 
 #define VW_DEFAULT_SETTINGS 1
@@ -22,17 +22,17 @@
 #define VW_SQUARE_VERTEX 3
 
 typedef struct vw_scene {
-	int projection_type;
-	int line_type;
-	int vertex_type;
-	float line_size;
-	float vertex_size;
-	float line_color[3];
-	float vertex_color[3];
-	float bg_color[4];
-	vw_point_t camera;
-	float focal;
-	vw_model_t *model;
+    int projection_type;
+    int line_type;
+    int vertex_type;
+    float line_size;
+    float vertex_size;
+    float line_color[3];
+    float vertex_color[3];
+    float bg_color[4];
+    vw_point_t camera;
+    float focal;
+    vw_model_t *model;
 } vw_scene_t;
 
 int vw_scene_create(void);
@@ -69,11 +69,11 @@ void vw_scene_get_vertex_color(float *red, float *green, float *blue);
 
 void vw_scene_set_vertex_color(float red, float green, float blue);
 
-void vw_scene_get_background_color(float *red, float *green,
-                                   float *blue, float *alpha);
+void vw_scene_get_background_color(float *red, float *green, float *blue,
+                                   float *alpha);
 
-void vw_scene_set_background_color(float red, float green, 
-                                   float blue, float alpha);
+void vw_scene_set_background_color(float red, float green, float blue,
+                                   float alpha);
 
 void vw_scene_get_camera(float *x, float *y, float *z);
 
@@ -84,4 +84,3 @@ vw_model_t *vw_scene_get_model(void);
 int vw_scene_set_model(const char *pathname);
 
 #endif
-

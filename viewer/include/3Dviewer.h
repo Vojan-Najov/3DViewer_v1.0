@@ -5,8 +5,8 @@
 extern "C" {
 #endif
 
-#include "vw_scene.h"
 #include "vw_affine.h"
+#include "vw_scene.h"
 
 #ifdef __cplusplus
 }

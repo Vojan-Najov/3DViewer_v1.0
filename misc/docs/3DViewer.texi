@@ -1,0 +1,85 @@
+\input texinfo
+@setfilename 3DViewer.info
+@documentencoding UTF-8
+
+@settitle 3DViewer-v1.0
+
+@afourpaper
+@setchapternewpage on
+
+@copying
+Copyright © 2023 School 21
+@end copying
+
+@titlepage
+@title 3DViewer-v1.0
+@subtitle Implementation a program to view 3D wireframe models.
+@author Jonathan, Peapodco, Ccartman. 
+
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+@ifnottex
+@node Top
+@top 3DViewer
+@insertcopying
+@end ifnottex
+
+@menu
+* Intoduction :: Subject
+* Usage ::
+@end menu
+
+@node Introduction
+@chapter Subject
+
+@cindex intro
+In this project you will implement a program to view 3D wireframe models (3D Viewer) in the C programming language. The models themselves must be loaded from .obj files and be viewable on the screen with the ability to rotate, scale and translate.
+A wireframe model is a model of an object in 3D graphics, which is a set of vertices and edges that defines the shape of the displayed polyhedral object in three-dimensional space.
+@itemize *
+@item The program must be developed in C language of C11 standard using gcc compiler. You can use any additional QT libraries and modules
+@item The program code must be located in the src folder
+@item The program must be built with Makefile which contains standard set of targets for GNU-programs: all, install, uninstall, clean, dvi, dist, tests, gcov. Installation directory could be arbitrary, except the building one
+@item The program must be developed according to the principles of structured programming
+@item When writing code it is necessary to follow the Google style
+@item Prepare full coverage of modules related to model loading and affine transformations with unit-tests
+@item There should be only one model on the screen at a time
+@item The program must provide the ability to:
+@enumerate
+@item Load a wireframe model from an obj file (vertices and surfaces list support only).
+@item Translate the model by a given distance in relation to the X, Y, Z axes.
+@item Rotate the model by a given angle relative to its X, Y, Z axes.
+@item Scale the model by a given value.
+@end enumerate
+@item The graphical user interface must contain:
+@enumerate
+@item A button to select the model file and a field to output its name.
+@item A visualisation area for the wireframe model.
+@item Button/buttons and input fields for translating the model.
+@item Button/buttons and input fields for rotating the model.
+@item Button/buttons and input fields for scaling the model.
+@item Information about the uploaded model - file name, number of vertices and edges.
+@end enumerate
+@item The program must correctly processes and allows user to view models with details up to 100, 1000, 10,000, 100,000, 1,000,000 vertices without freezing (a freeze is an interface inactivity of more than 0.5 seconds)
+@end itemize
+
+@node Usage
+@chapter Usage
+
+@itemize *
+@item The lib3Dviewer.a library is written in C, a graphical user interface by means of Qt6, graphics for displaying models using OpenGL API 2.1.
+@item The program supports model descriptions in Wavefront obj format.
+@item To load the model, click on the menu bar File->open. The program works with one model at a time.
+@item The upper-left corner displays information about the name of the selected file, the number of vertices and edges in the model.
+@item The panel on the right shows buttons for shifting and rotating the model along three coordinate axes, and buttons for changing the scale.
+@item The panel on the right contains buttons to customize the display of the model, such as changing the background colors, vertices and faces, the type and size of lines and vertices. You can also choose the type of projection: central or parallel.
+@item The program settings are saved in a file .3DViewer_config in the user's home directory between program restarts.
+@item In the File->save menu, you can save the current model as an obj file, jpeg file, or bmp file. By default, it is saved in obj format, for jpeg and bmp formats, you need to explicitly specify the file extension.
+@item A gif file recording function is also available.
+@end itemize
+
+@image{./misc/images/example, 400pt,300pt,,.eps}
+
+@bye

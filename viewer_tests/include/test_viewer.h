@@ -3,9 +3,9 @@
 
 #include <check.h>
 
-#include "vw_scene.h"
 #include "vw_affine.h"
 #include "vw_model.h"
+#include "vw_scene.h"
 
 Suite *test_vw_scene(void);
 Suite *test_vw_model(void);

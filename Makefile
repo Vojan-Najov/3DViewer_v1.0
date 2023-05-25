@@ -2,6 +2,8 @@ TARGET = 3DViewer_v1.0
 TEST = test
 DIST_NAME = 3DViewer-v1.0
 
+OS := $(shell uname -s)
+
 RM = rm -f
 MKDIR = mkdir -p
 RMDIR = rm -rf
@@ -19,19 +21,33 @@ VIEWER_GUI_PATHES = ./viewer_gui/C8_3DViewer_SRC.pro \
                     ./viewer_gui/mainwindow.h \
                     ./viewer_gui/mainwindow.ui \
                     ./viewer_gui/oglwindow.cpp \
-                    ./viewer_gui/oglwindow.h
+                    ./viewer_gui/oglwindow.h \
+					./viewer_gui/gifLib
              
 all: $(TARGET)
 
 $(TEST):
 	make -sC ./viewer_tests/ all
 
+install: $(TARGET)
+	$(RMDIR) build
+	mkdir build
+ifeq ($(OS), Linux)
+	mv viewer_gui/C8_3DViewer_SRC build
+endif
+ifeq ($(OS), Darwin)
+	mv viewer_gui/C8_3DViewer_SRC.app build
+endif
+
+uninstall:
+	rm -rf build
+
 $(TARGET): viewer_gui/Makefile
 	make -sC ./viewer/ all
 	make -sC ./viewer_gui/ all
 	
 viewer_gui/Makefile:
-	cd viewer_gui && qmake6 && cd ../
+	cd viewer_gui && qmake6
 
 gcov_report:
 	make -sC ./viewer_tests/ gcov_report
@@ -51,6 +67,12 @@ dist:
 	tar -czvf $(DIST_NAME).tar.gz $(DIST_NAME)
 	$(RMDIR) $(DIST_NAME)
 
+dvi: ./misc/docs/3DViewer.texi
+	texi2dvi $<
+	$(RM) 3DViewer.aux 3DViewer.cp 3DViewer.log 3DViewer.toc 3DViewer.cps
+#	dvipdfmx 3DViewer.dvi
+#	open 3DViewer.pdf 
+
 clean: viewer_gui/Makefile
 	make -sC ./viewer/ clean
 	make -sC ./viewer_tests/ clean
@@ -60,6 +82,8 @@ clean: viewer_gui/Makefile
 	@$(RM) ./viewer_gui/Makefile
 	$(RM) -r ./coverage
 	$(RM) $(DIST_NAME).tar.gz
+	$(RMDIR) build
+	$(RM) 3DViewer.dvi 3DViewer.pdf
 
 re: clean all
 
@@ -67,5 +91,5 @@ format:
 	make -sC ./viewer/ format
 	make -sC ./viewer_tests/ format
 
-.PHONY: all clean re format test
+.PHONY: all clean re format test dist install uninstall dvi
 

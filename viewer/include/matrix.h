@@ -8,9 +8,9 @@
 #define S21_NULL (void *)NULL
 
 typedef struct matrix_struct {
-  int rows;
-  int columns;
-  double **matrix;
+    int rows;
+    int columns;
+    double **matrix;
 } matrix_t;
 
 int create_matrix(int rows, int columns, matrix_t *result);

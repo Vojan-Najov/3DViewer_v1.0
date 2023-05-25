@@ -1,36 +1,35 @@
 #ifndef OGLWINDOW_H
 #define OGLWINDOW_H
 
-#include <QOpenGLWidget>
-#include <QOpenGLFunctions>
 #include <QMatrix4x4>
 #include <QMouseEvent>
+#include <QOpenGLFunctions>
+#include <QOpenGLWidget>
 
 #include "../viewer/include/3Dviewer.h"
+#include "gifLib/qgifimage.h"
 
-
-class OGLWindow : public QOpenGLWidget//, protected QOpenGLFunctions
+class OGLWindow : public QOpenGLWidget  //, protected QOpenGLFunctions
 {
-    Q_OBJECT
-public:
-    float xRot = 0.0f, yRot = 0.0f;
-    QPoint mPos;
-public:
-    explicit OGLWindow(QWidget *parent = nullptr);
-    void mousePressEvent(QMouseEvent * m);
-    void mouseMoveEvent(QMouseEvent * m);
-protected:
-    void initializeGL();
-    void resizeGL(int w, int h);
-    void paintGL();
-private:
-    int status;
+  Q_OBJECT
+ public:
+  float xRot, yRot;
+  QPoint mPos;
 
-public:
-    void pupdate();
+ public:
+  explicit OGLWindow(QWidget *parent = nullptr);
+  void mousePressEvent(QMouseEvent *m);
+  void mouseMoveEvent(QMouseEvent *m);
 
-signals:
+ protected:
+  void initializeGL();
+  void resizeGL(int w, int h);
+  void paintGL();
 
+ public:
+  void pupdate();
+
+ signals:
 };
 
-#endif // OGLWINDOW_H
+#endif  // OGLWINDOW_H

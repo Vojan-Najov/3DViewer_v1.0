@@ -13,41 +13,40 @@
 */
 
 int vw_get_line(FILE *stream, char **line) {
-	static size_t size = 256;
-	char c = 0;
-	int len = 0;
+    static size_t size = 256;
+    char c = 0;
+    int len = 0;
 
-	if (*line == NULL) {
-		*line = (char *) malloc(sizeof(char) * size);
-	}
+    if (*line == NULL) {
+        *line = (char *)malloc(sizeof(char) * size);
+    }
 
-	c = fgetc(stream);
-	while (*line != NULL && c != EOF && c != '\n') {
-		if ((size_t)len >= size - 2) {
-			size *= 2;
-			*line = realloc(*line, size);
-		}
-		if (*line != NULL) {
-			(*line)[len] = c;
-			++len;
-		}
-		c = fgetc(stream);
-	}
-	if (c == '\n') {
-		(*line)[len] = '\n';
-		++len;
-	}
+    c = fgetc(stream);
+    while (*line != NULL && c != EOF && c != '\n') {
+        if ((size_t)len >= size - 2) {
+            size *= 2;
+            *line = realloc(*line, size);
+        }
+        if (*line != NULL) {
+            (*line)[len] = c;
+            ++len;
+        }
+        c = fgetc(stream);
+    }
+    if (c == '\n') {
+        (*line)[len] = '\n';
+        ++len;
+    }
 
-	if (*line == NULL) {
-		len = -1;
-	} else if (ferror(stream)) {
-		len = -1;
-		free(*line);
-		*line = NULL;
-	} else {
-		(*line)[len] = '\0';
-	}
+    if (*line == NULL) {
+        len = -1;
+    } else if (ferror(stream)) {
+        len = -1;
+        free(*line);
+        *line = NULL;
+    } else {
+        (*line)[len] = '\0';
+    }
 
-	return (len);
+    return (len);
 }
-

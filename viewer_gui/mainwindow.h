@@ -2,93 +2,105 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+
+#include "gifLib/qgifimage.h"
 #include "oglwindow.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui {
+class MainWindow;
+}
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
-public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+ public:
+  MainWindow(QWidget *parent = nullptr);
+  ~MainWindow();
 
-private slots:
+ private slots:
 
-    void on_action_triggered();
+  void on_action_triggered();
 
-    void on_action_2_triggered();
+  void on_action_2_triggered();
 
-    void chooseColorLine();
+  void chooseColorLine();
 
-    void chooseColorVertex();
+  void initializeCustomization();
 
-    void chooseColorBackground();
+  void chooseColorVertex();
 
-    void positiveScale();
+  void chooseColorBackground();
 
-    void negativeScale();
+  void positiveScale();
 
-    void positiveTranslateForX();
+  void negativeScale();
 
-    void negativeTranslateForX();
+  void positiveTranslateForX();
 
-    void positiveTranslateForY();
+  void negativeTranslateForX();
 
-    void negativeTranslateForY();
+  void positiveTranslateForY();
 
-    void positiveTranslateForZ();
+  void negativeTranslateForY();
 
-    void negativeTranslateForZ();
+  void positiveTranslateForZ();
 
-    void negativeRotateForX();
+  void negativeTranslateForZ();
 
-    void positiveRotateForX();
+  void negativeRotateForX();
 
-    void positiveRotateForY();
+  void positiveRotateForX();
 
-    void positiveRotateForZ();
+  void positiveRotateForY();
 
-    void negativeRotateForY();
+  void positiveRotateForZ();
 
-    void negativeRotateForZ();
+  void negativeRotateForY();
 
-    void setLineType();
+  void negativeRotateForZ();
 
-    void on_comboBox_currentTextChanged(const QString &arg1);
+  void setLineType();
 
-    void setProjectionType();
+  void setProjectionType();
 
-    void on_horizontalSlider_2_valueChanged(int value);
+  void initializeTransmitions();
 
-    void initializeTransmitions();
+  void on_XvalueForTranslate_valueChanged(double arg1);
 
-    void on_horizontalSlider_valueChanged(int value);
+  void on_YvalueForTranslate_valueChanged(double arg1);
 
-    void on_XvalueForTranslate_valueChanged(double arg1);
+  void on_ZvalueForTranslate_valueChanged(double arg1);
 
-    void on_YvalueForTranslate_valueChanged(double arg1);
+  void on_XvalueForRotate_valueChanged(double arg1);
 
-    void on_ZvalueForTranslate_valueChanged(double arg1);
+  void on_YvalueForRotate_valueChanged(double arg1);
 
-    void on_XvalueForRotate_valueChanged(double arg1);
+  void on_ZvalueForRotate_valueChanged(double arg1);
 
-    void on_YvalueForRotate_valueChanged(double arg1);
+  void on_Scalevalue_valueChanged(double arg1);
 
-    void on_ZvalueForRotate_valueChanged(double arg1);
+  void on_lineTypeBox_currentTextChanged(const QString &arg1);
 
-    void on_Scalevalue_valueChanged(double arg1);
+  void on_vertexTypeBox_currentTextChanged(const QString &arg1);
 
-    void on_lineTypeBox_currentTextChanged(const QString &arg1);
+  void on_projectionTypeBox_currentTextChanged(const QString &arg1);
 
-    void on_comboBox_2_currentTextChanged(const QString &arg1);
+  void on_LineSlider_valueChanged(int value);
 
-private:
-    Ui::MainWindow *ui;
-    double prevXTranslate = 0;
-    int status;
+  void on_VertexSlider_valueChanged(int value);
+
+  void on_makeGifButton_clicked();
+
+  void on_setFrameButton_clicked();
+
+  void on_cancelGifButton_clicked();
+
+  void updateScene();
+
+ private:
+  Ui::MainWindow *ui;
+  QGifImage *movie;
 };
-#endif // MAINWINDOW_H
+#endif  // MAINWINDOW_H

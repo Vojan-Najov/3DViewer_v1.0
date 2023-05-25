@@ -55,7 +55,7 @@ clean:
 re: clean all
 
 format:
-	cp ../../materials/linters/.clang-format .
+	cp ../misc/.clang-format .
 	clang-format -i $(SRC) $(TEST_SRC) $(INCLUDE) $(TEST_INCLUDE)
 	$(RM) .clang-format
 

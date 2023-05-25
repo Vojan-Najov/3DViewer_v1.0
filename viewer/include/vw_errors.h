@@ -9,4 +9,3 @@
 #define VW_INCORRECT_LINE 6
 
 #endif
-

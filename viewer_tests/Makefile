@@ -60,8 +60,8 @@ clean:
 re: fclean all
 
 format:
-	cp ../../materials/linters/.clang-format .
-	clang-format -i $(SRC) $(TEST_SRC) $(INCLUDE) $(TEST_INCLUDE)
+	cp ../misc/.clang-format .
+	clang-format -i $(TEST_SRC) $(TEST_INCLUDE)
 	$(RM) .clang-format
 
 .PHONY: all clean re format

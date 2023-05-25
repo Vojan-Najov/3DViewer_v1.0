@@ -11,11 +11,20 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    oglwindow.cpp
+    oglwindow.cpp \
+    gifLib/giflib/dgif_lib.c \
+    gifLib/giflib/egif_lib.c \
+    gifLib/giflib/gif_err.c \
+    gifLib/giflib/gif_font.c \
+    gifLib/giflib/gif_hash.c \
+    gifLib/giflib/gifalloc.c \
+    gifLib/giflib/quantize.c \
+    gifLib/qgifimage.cpp
 
 HEADERS += \
     mainwindow.h \
-    oglwindow.h
+    oglwindow.h \
+    gifLib/qgifimage.h
 
 FORMS += \
     mainwindow.ui
