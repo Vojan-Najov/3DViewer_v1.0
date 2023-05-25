@@ -20,5 +20,5 @@ Implementation a program to view 3D wireframe models. Qt, OpenGL.
 - In the File->save menu, you can save the current model as an obj file, jpeg file, or bmp file. By default, it is saved in obj format, for jpeg and bmp formats, you need to explicitly specify the file extension.
 - A gif file recording function is also available.
 
-<img src="./misc/images/examole_01.png" alt="example_01" width="700"/>
+<img src="./misc/images/example_01.png" alt="example_01" width="700"/>
 
