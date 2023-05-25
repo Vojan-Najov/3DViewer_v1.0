@@ -21,4 +21,5 @@ Implementation a program to view 3D wireframe models. Qt, OpenGL.
 - A gif file recording function is also available.
 
 <img src="./misc/images/example_01.png" alt="example_01" width="700"/>
+[!example](https://github.com/Vojan-Najov/3DViewer_v1.0/blob/main/misc/images/example.gif)
 
