@@ -65,7 +65,7 @@ START_TEST(test_vertex_type) {
 END_TEST
 
 START_TEST(test_line_size) {
-    int line_size, ret_line_size;
+    float line_size, ret_line_size;
 
     vw_scene_create();
     line_size = 10.0;
@@ -81,7 +81,7 @@ START_TEST(test_line_size) {
 END_TEST
 
 START_TEST(test_vertex_size) {
-    int vertex_size, ret_vertex_size;
+    float vertex_size, ret_vertex_size;
 
     vw_scene_create();
     vertex_size = 10.3;
