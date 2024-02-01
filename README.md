@@ -4,8 +4,8 @@ Implementation a program to view 3D wireframe models. Qt, OpenGL.
 
 ## Subject
 
-- [Subject EN](.misc/docs/subject_en.md)
-- [Subject_RU](.misc/docs/subject_ru.md)
+- [Subject EN](misc/docs/subject_en.md)
+- [Subject_RU](misc/docs/subject_ru.md)
 
 ## Usage
 
